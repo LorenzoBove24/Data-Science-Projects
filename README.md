@@ -4,7 +4,7 @@
 
 ## 📂 Projects
 
-1. [**Iris Classification**]()
+1. [**Iris Classification**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/Iris%20Classification)
    - **Description:** The project classifies the observations in one of the three types of flowers.
    - **Technologies Used:** The notebook uses Random Forest and KNN.
    - **Results:** Achieved 100% accuracy using Random Forest Classifier.
