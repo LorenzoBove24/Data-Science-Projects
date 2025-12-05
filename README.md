@@ -2,6 +2,15 @@
  Welcome to my Data Science Projects Repository! This repository contains a collection of my data science projects, showcasing my skills and expertise in the field. Each project demonstrates different aspects of data analysis, machine learning, and visualization.
 ---
 
+
+This repository contains the source code and notebooks for my data science projects.
+👉 **For a visual and interactive showcase of my work, visit my personal website:**
+
+## 🚀 [View My Portfolio Live](https://LorenzoBove24.github.io)
+
+---
+
+
 ## 📂 Projects
 
 1. [**Iris Classification**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/Iris%20Classification)
