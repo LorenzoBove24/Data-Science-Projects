@@ -1,0 +1,60 @@
+# Legal Agentic RAG App (Text Mining Project)
+
+This project implements and evaluates different RAG architectures (Single-Agent, Multi-Agent, and Hybrid) applied to a multi-nation legal corpus (Italy, Estonia, Slovenia). It also includes an automated evaluation pipeline using the RAGAS framework.
+
+---
+
+## LOCAL VERSION (NO DOCKER)
+
+# 0) Go to the project folder
+cd path/to/agentic_rag_app
+
+# 1) Create and activate the virtual environment
+# --- Windows (PowerShell / CMD)
+python -m venv venv
+venv\Scripts\activate
+
+# --- Linux / macOS
+# python -m venv venv
+# source venv/bin/activate
+
+# 2) Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# 3) Configure the .env file
+# Create a file named .env in the project root and insert your API keys. 
+# This project uses models via OpenRouter and Groq to handle evaluation limits:
+OPENROUTER_API_KEY=your_openrouter_api_key
+GROQ_API_KEY=your_groq_api_key
+
+# 4) Run the Streamlit application
+streamlit run app.py
+
+# 5) Interface Navigation (http://localhost:8501)
+#   - Chatbot Q&A: Interact with the Single-Agent or the Multi-Agent Supervisor.
+#   - RAG Evaluation: Run RAGAS metrics (Faithfulness, Context Precision/Recall, Answer Relevancy).
+
+---
+
+## DOCKER VERSION
+
+# 0) Go to the project folder
+cd path/to/agentic_rag_app
+
+# 1) Build the Docker image
+docker build -t agentic-rag-app .
+
+# 2) Ensure the .env file is present in the project root (with OpenRouter/Groq keys)
+
+# 3) Prepare data on the HOST computer (outside the container), for example:
+# /path/on/host/legal_corpus/
+#   italy/
+#   estonia/
+#   slovenia/
+
+# 4) Run the container (mounting local data into the /data folder inside the container)
+docker run -p 8501:8501 \
+  --env-file .env \
+  -v /path/on/host/legal_corpus:/data \
+  agentic-rag-app

@@ -1,0 +1,8 @@
+data/
+.venv
+.env
+__pycache__/
+*.pyc   
+venv/
+Contest_Data/
+vector_store/
