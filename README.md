@@ -27,4 +27,10 @@ This repository contains the source code and notebooks for my data science proje
     - **Description:** The project features an intelligent legal chatbot built with a Retrieval-Augmented Generation (RAG) architecture. It allows users to query complex legal documents (e.g., divorce and succession laws) and provides accurate, context-aware answers by retrieving information from a custom vector database.
     - **Technologies Used:** Python, LangChain, Streamlit, FAISS (Vector Database), Hugging Face (Embeddings), and OpenAI/Groq LLMs.
     - **Results:** Successfully developed and deployed a fully functional, interactive web application on Streamlit Cloud capable of efficiently retrieving specific legal contexts and generating precise AI-driven responses.
+
+  4. [**Visual Question Answering with LLaVA & QLoRA**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/VQA_Gradio_App)
+
+**Description:** The project features an advanced Visual Question Answering (VQA) system built by fine-tuning the multimodal LLM LLaVA 1.5. It allows users to upload images and ask natural language questions about them, providing answers by leveraging a model optimized with QLoRA (4-bit quantization) on the Flickr30k dataset.
+**Technologies Used:** Python, PyTorch, Hugging Face (Transformers, PEFT), Gradio, BitsAndBytes, and LLaVA.
+**Results:** Successfully developed and deployed a fully functional, interactive web application on Hugging Face Spaces capable of performing real-time visual analysis and dynamically comparing the base model's performance with the fine-tuned adapter.
    
