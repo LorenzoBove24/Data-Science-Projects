@@ -30,7 +30,7 @@ This repository contains the source code and notebooks for my data science proje
 
   4. [**Visual Question Answering with LLaVA & QLoRA**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/VQA_Gradio_App)
 
-**Description:** The project features an advanced Visual Question Answering (VQA) system built by fine-tuning the multimodal LLM LLaVA 1.5. It allows users to upload images and ask natural language questions about them, providing answers by leveraging a model optimized with QLoRA (4-bit quantization) on the Flickr30k dataset.
-**Technologies Used:** Python, PyTorch, Hugging Face (Transformers, PEFT), Gradio, BitsAndBytes, and LLaVA.
-**Results:** Successfully developed and deployed a fully functional, interactive web application on Hugging Face Spaces capable of performing real-time visual analysis and dynamically comparing the base model's performance with the fine-tuned adapter.
+     - **Description:** The project features an advanced Visual Question Answering (VQA) system built by fine-tuning the multimodal LLM LLaVA 1.5. It allows users to upload images and ask natural language questions about them, providing answers by leveraging a model optimized with QLoRA (4-bit quantization) on the Flickr30k dataset.
+     - **Technologies Used:** Python, PyTorch, Hugging Face (Transformers, PEFT), Gradio, BitsAndBytes, and LLaVA.
+     - **Results:** Successfully developed and deployed a fully functional, interactive web application on Hugging Face Spaces capable of performing real-time visual analysis and dynamically comparing the base model's performance with the fine-tuned adapter.
    
