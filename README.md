@@ -22,4 +22,9 @@ This repository contains the source code and notebooks for my data science proje
    - **Description:** The script contains a basic version of a Linear Regression model built using only the numpy library and then the model was applied on a simple dataset.
    - **Technologies Used:** The notebook uses Linear Regression.
    - **Results:** Achieved the same accuracy of the Linear Regression model of the library scikit-learn.
+
+ 3. [**Legal RAG System**] (https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/Legal_RAG_System)
+   - **Description:** The project features an intelligent legal chatbot built with a Retrieval-Augmented Generation (RAG) architecture. It allows users to query complex legal documents (e.g., divorce and succession laws) and provides accurate, context-aware answers by retrieving information from a custom vector database.
+   - **Technologies Used:** Python, LangChain, Streamlit, FAISS (Vector Database), Hugging Face (Embeddings), and OpenAI/Groq LLMs.
+   - **Results:** Successfully developed and deployed a fully functional, interactive web application on Streamlit Cloud capable of efficiently retrieving specific legal contexts and generating precise AI-driven responses.
    
