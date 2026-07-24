@@ -48,20 +48,20 @@ class RAGConfig:
     # List of folders where JSON corpus lives
     json_folders: List[str] = field(default_factory=list)
 
-    # ---------------- Vector stores (paths) ----------------
+# ---------------- Vector stores (paths) ----------------
     # Root/base folder under which all FAISS vector DBs will be created.
     # Example: "vector_store" -> "vector_store/divorce_db", "vector_store/succession_db", etc.
     #
     # NOTE: `vector_store_base_dir` is kept for compatibility with the
     # Vector DB Builder / Config pages, which reference this attribute.
-    vector_store_base_dir: str = "vector_store"
+    vector_store_base_dir: str = "Legal_RAG_System/vector_store"
 
     # Alias used by some newer code; kept equal to base_dir by default.
-    vector_store_root: str = "vector_store"
+    vector_store_root: str = "Legal_RAG_System/vector_store"
 
     # Default / active vector store directory (single-DB mode)
     # Example: "vector_store/default"
-    vector_store_dir: str = "vector_store"
+    vector_store_dir: str = "Legal_RAG_System/vector_store"
 
     # Optional: multiple DBs (multi-DB mode)
     # Example: ["vector_store/divorce_db", "vector_store/succession_db"]
