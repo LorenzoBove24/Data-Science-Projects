@@ -70,17 +70,17 @@ try:
     r2 = modello.score(y_test)
 
     # Mostriamo una piccola preview del dataset
-    st.subheader("📊 Anteprima del Dataset (Flickr30k)")
+    st.subheader("📊 Preview of Data ")
     st.dataframe(final_df.head(), use_container_width=True)
 
     # --- 5. RISULTATI E GRAFICO ---
-    st.subheader("⚙️ Risultati del Modello")
-    st.info(f"**R² Score:** {r2:.4f} \n\n*Ottiene lo stesso identico risultato della libreria Scikit-Learn!*")
+    st.subheader("⚙️ Results of the Model")
+    st.info(f"**R² Score:** {r2:.4f} \n\n*Obtains the same exact result as the Scikit-Learn library!*")
 
-    st.subheader("📉 Grafico della Regressione")
+    st.subheader("📉 Regression Plot")
     fig, ax = plt.subplots(figsize=(8, 5))
-    ax.scatter(X_test, y_test, alpha=0.4, label='Dati reali')
-    ax.plot(X_test, y_pred, color='red', linewidth=2, label='Linea di regressione (My Model)')
+    ax.scatter(X_test, y_test, alpha=0.4, label='Real Data')
+    ax.plot(X_test, y_pred, color='red', linewidth=2, label='Regression Line (My Model)')
     ax.set_xlabel("Weight (Pounds)")
     ax.set_ylabel("Height (Inches)")
     ax.set_title("Plot of my Linear Regression model")
@@ -89,21 +89,53 @@ try:
     # Renderizza il grafico di matplotlib su Streamlit
     st.pyplot(fig)
 
-    # --- 6. DEMO INTERATTIVA ---
-    st.subheader("🔮 Prova il modello: Fai una previsione!")
-    st.write("Sposta lo slider per inserire un peso e vedere l'altezza prevista dal modello calcolato da zero.")
+    # --- 6. DEMO INTERATTIVA: MODIFICA I PARAMETRI ---
+    st.subheader("🎛️ Interactive Demo: Modify the Line!")
+    st.write("Play with the y-intercept and slope to see how the coefficients change the line. Try to overlay it perfectly on the data!")
     
-    min_weight = float(feature.min().iloc[0])
-    max_weight = float(feature.max().iloc[0])
-    mean_weight = float(feature.mean().iloc[0])
+    # Estraiamo i parametri ottimali calcolati dal tuo modello from scratch
+    # coefficienti[0] è l'intercetta (perché abbiamo aggiunto la colonna di 1)
+    # coefficienti[1] è la pendenza (il peso della feature)
+    ottimo_b0 = float(modello.coefficienti[0]) 
+    ottimo_b1 = float(modello.coefficienti[1]) 
     
-    user_input = st.slider("Seleziona il Peso (Pounds)", min_value=min_weight, max_value=max_weight, value=mean_weight)
+    col1, col2 = st.columns(2)
+    with col1:
+        # Slider per l'intercetta (lo facciamo variare attorno al valore ottimale)
+        user_b0 = st.slider("Y-Intercept (b0)", min_value=ottimo_b0 - 20.0, max_value=ottimo_b0 + 20.0, value=ottimo_b0, step=0.5)
+    with col2:
+        # Slider per la pendenza
+        user_b1 = st.slider("Slope (b1)", min_value=ottimo_b1 - 1.0, max_value=ottimo_b1 + 1.0, value=ottimo_b1, step=0.01)
+        
+    # Calcoliamo i punti della retta personalizzata (y = b0 + b1*x)
+    y_custom = user_b0 + (user_b1 * X_test["Weight(Pounds)"])
     
-    # Prepariamo l'input per la classe (ha bisogno di un DataFrame per il copy e l'insert)
-    input_df = pd.DataFrame({"Weight(Pounds)": [user_input]})
-    predicted_height = modello.predict(input_df)[0]
+    # Calcoliamo l'errore per dare un feedback visivo immediato
+    mse_custom = np.mean((y_test - y_custom)**2)
+    mse_ottimo = np.mean((y_test - y_pred)**2)
     
-    st.success(f"L'altezza calcolata per **{user_input:.2f} lbs** è di **{predicted_height:.2f} inches**.")
+    st.info(f"**Mean Squared Error (MSE) of your line:** {mse_custom:.2f}  \n*(The minimum MSE calculated by the algorithm is {mse_ottimo:.2f})*")
+
+    # --- 7. GRAFICO DINAMICO ---
+    st.subheader("📉 Interactive Regression Plot")
+    fig, ax = plt.subplots(figsize=(8, 5))
+    
+    # Disegna i dati storici
+    ax.scatter(X_test, y_test, alpha=0.4, label='Real Data (Test set)')
+    
+    # Disegna la retta ottimale del tuo modello (tratteggiata per confronto)
+    ax.plot(X_test, y_pred, color='red', linestyle='--', linewidth=2, label='Optimal Line (Model)')
+    
+    # Disegna la retta governata dagli slider
+    ax.plot(X_test, y_custom, color='lime', linewidth=3, label='Your Interactive Line')
+    
+    ax.set_xlabel("Weight (Pounds)")
+    ax.set_ylabel("Height (Inches)")
+    ax.set_title("Interactive Linear Regression")
+    ax.legend()
+    
+    # Mostra il grafico aggiornato in tempo reale
+    st.pyplot(fig)
 
 except FileNotFoundError:
-    st.error("⚠️ Errore: File `SOCR-HeightWeight.csv` non trovato. Assicurati di aver inserito il dataset nella stessa cartella di questa app.")
+    st.error("⚠️ Error: File `SOCR-HeightWeight.csv` not found. Make sure you have placed the dataset in the same folder as this app.")
