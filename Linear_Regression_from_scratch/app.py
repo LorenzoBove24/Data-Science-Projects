@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -39,15 +40,19 @@ class RegressioneLineare():
 st.set_page_config(page_title="Linear Regression From Scratch", page_icon="📈")
 st.title("📈 Linear Regression From Scratch")
 st.markdown("""
-Questo progetto dimostra l'implementazione di un modello di **Regressione Lineare** scritto interamente da zero utilizzando esclusivamente operazioni algebriche con la libreria `numpy`.
+This project demonstrates the implementation of a **Linear Regression** model built entirely from scratch, using exclusively algebraic operations with the `numpy` library.
 """)
 
 # --- 3. CARICAMENTO DATI ---
 # Cacheiamo la funzione così Streamlit non ricarica il CSV a ogni click
 @st.cache_data
 def load_data():
-    # Legge il file CSV che hai messo nella repository
-    return pd.read_csv("SOCR-HeightWeight.csv")
+    # Trova il percorso assoluto della cartella in cui si trova app.py
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Unisce il percorso della cartella al nome del file
+    file_path = os.path.join(current_dir, "SOCR-HeightWeight.csv")
+    
+    return pd.read_csv(file_path)
 
 try:
     dataset = load_data()
