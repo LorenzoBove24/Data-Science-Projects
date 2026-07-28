@@ -33,4 +33,12 @@ This repository contains the source code and notebooks for my data science proje
      - **Description:** The project features an advanced Visual Question Answering (VQA) system built by fine-tuning the multimodal LLM LLaVA 1.5. It allows users to upload images and ask natural language questions about them, providing answers by leveraging a model optimized with QLoRA (4-bit quantization) on the Flickr30k dataset.
      - **Technologies Used:** Python, PyTorch, Hugging Face (Transformers, PEFT), Gradio, BitsAndBytes, and LLaVA.
      - **Results:** Successfully developed and deployed a fully functional, interactive web application on Hugging Face Spaces capable of performing real-time visual analysis and dynamically comparing the base model's performance with the fine-tuned adapter.
+
+   5. [**AI Research & Newsletter Generator with CrewAI**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/AI_Research_Team)
+      
+      - **Description**: The project features a multi-agent system built with CrewAI that automates the creation of tech newsletters. Given a topic as input, a crew of three specialized agents (Researcher, Analyst, and Writer) collaborates to search the web for real, recent news, critically analyze their technical and business impact, and generate a polished, ready-to-publish Markdown newsletter, all through an interactive Streamlit interface.
+      - **Technologies Used**: Python, CrewAI, DeepSeek LLM, Serper.dev (Google News API), Streamlit, python-dotenv.
+      - **Results**: Successfully developed a fully functional multi-agent pipeline capable of retrieving up-to-date news with automatic time-window fallback (week → month), and implemented robust anti-hallucination safeguards — including task guardrails and explicit stop conditions — ensuring the system never fabricates sources, statistics, or URLs when real data is unavailable.
+
+    
    
