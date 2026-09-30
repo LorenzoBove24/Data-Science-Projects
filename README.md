@@ -40,11 +40,15 @@ This repository contains the source code and notebooks for my data science proje
       - **Technologies Used:** Python, TensorFlow, Keras, Scikit-Learn, OpenCV, Pandas, NumPy, Matplotlib, Seaborn.
       - **Results:** Successfully trained and evaluated both models on facial image datasets, demonstrating that the custom CNN achieved superior classification accuracy and generalization compared to the traditional SVM pipeline by capturing complex, non-linear spatial patterns directly from raw pixel inputs.
 
-   7. [**AI Research & Newsletter Generator with CrewAI**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/AI_Research_Team)
+   6. [**AI Research & Newsletter Generator with CrewAI**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/AI_Research_Team)
       
       - **Description:** The project features a multi-agent system built with CrewAI that automates the creation of tech newsletters. Given a topic as input, a crew of three specialized agents (Researcher, Analyst, and Writer) collaborates to search the web for real, recent news, critically analyze their technical and business impact, and generate a polished, ready-to-publish Markdown newsletter, all through an interactive Streamlit interface.
       - **Technologies Used:** Python, CrewAI, DeepSeek LLM, Serper.dev (Google News API), Streamlit, python-dotenv.
       - **Results:** Successfully developed a fully functional multi-agent pipeline capable of retrieving up-to-date news with automatic time-window fallback (week → month), and implemented robust anti-hallucination safeguards — including task guardrails and explicit stop conditions — ensuring the system never fabricates sources, statistics, or URLs when real data is unavailable.
 
-    
+  7. [**Neural Network from sratch**](https://github.com/LorenzoBove24/Data-Science-Projects/tree/main/neural%20network%20from%20scratch)
+
+   - **Description:** Developed a multi-layer neural network entirely from scratch to classify handwritten digits from the MNIST dataset. The project implements the complete deep learning lifecycle—forward propagation, Categorical Cross-Entropy loss calculation, backpropagation using chain rule calculus, and Gradient Descent optimization—relying strictly on pure mathematics and NumPy matrix operations without the use of high-level frameworks like PyTorch or TensorFlow.
+   - **Technologies Used:** Python, NumPy, Pandas, Matplotlib.
+   - **Results:** Successfully built and trained a robust architecture capable of recognizing unseen handwritten digits, achieving a validation accuracy of ~89.6% and a definitive test accuracy of 90.18%. The project demonstrates a deep, fundamental understanding of internal machine learning mechanics, manual gradient derivation, and efficient matrix vectorization to ensure mathematical stability and prevent overfitting.
    
